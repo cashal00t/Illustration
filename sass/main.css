@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  font-size: 55.5%;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Spartan',sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(69deg, #000000 0%, #000000 66%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0px 3px 10px #f0f0f0;
+          box-shadow: inset 0px 3px 10px #f0f0f0;
+}
+
+.nav {
+  background-color: black;
+  position: fixed;
+  color: #fff;
+  height: 100vh;
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.nav .logo-r {
+  visibility: hidden;
+  width: 0px;
+}
+
+.nav__item {
+  position: relative;
+  padding: 1rem;
+}
+
+.nav__item:not(:last-child) {
+  margin-bottom: .5rem;
+}
+
+.nav__item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #ce4f56;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: width 0.5s cubic-bezier(1, 0, 0, 1) 0.2s, -webkit-transform 0.2s;
+  transition: width 0.5s cubic-bezier(1, 0, 0, 1) 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.2s;
+  transition: transform 0.2s, width 0.5s cubic-bezier(1, 0, 0, 1) 0.2s, -webkit-transform 0.2s;
+  background-color: .1s;
+}
+
+.nav__item:hover::before, .nav__item--active::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  width: 100%;
+}
+
+.nav__item:active::before {
+  background-color: #ff7f5a;
+}
+
+.nav__link:link, .nav__link:visited {
+  color: grey;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.nav a {
+  position: relative;
+  z-index: 3;
+  text-decoration: none;
+  color: azure;
+}
+
+.gallery {
+  width: 100%;
+  padding-top: 10rem;
+  margin-left: 15%;
+  padding: 3rem;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 15px;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 300px;
+  grid-auto-flow: dense;
+}
+
+.gallery a {
+  background-position: top;
+  background-size: cover;
+  text-decoration: none;
+}
+
+.gallery .wide {
+  grid-column: span 2;
+}
+
+.gallery .tall {
+  grid-row: span 2;
+}
+
+.gallery a:hover {
+  -webkit-transition: all 5s ease-in-out;
+  transition: all 5s ease-in-out;
+  background-position: center;
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 35% !important;
+  }
+  .nav {
+    width: 100%;
+    height: 15%;
+    position: fixed;
+    z-index: 6;
+  }
+  .nav .logo {
+    visibility: hidden;
+    display: none;
+  }
+  .nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    font-size: 2vmax;
+    padding-bottom: 6rem;
+  }
+  .nav__item:before {
+    height: 8%;
+    top: 4rem;
+  }
+  .gallery {
+    padding-top: 30rem;
+    margin-left: 0%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .gallery {
+    margin-left: 0%;
+    padding-top: 20rem;
+    -ms-grid-columns: (minmax(160px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-auto-rows: 200px;
+    grid-gap: 10px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
